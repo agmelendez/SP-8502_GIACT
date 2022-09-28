@@ -1,0 +1,69 @@
+---
+title: "Estimación Modelo de Regresión"
+author: "Agustín Gómez M"
+format: html
+editor: visual
+---
+
+## Modelo de regresión
+
+``` {r}
+library(faraway)
+attach(savings)
+```
+
+## Ahora creamos la matriz con información
+
+``` {r}
+ahorro<-savings[,-(2:4)]
+ahorro
+```
+
+### Definición de variables
+
+sr= tasa de ahorro (ahorros personales dividido por el ingreso disponible) ddpi= porcentaje de la tasa de crecimiento del ingreso disponible per capita
+
+### Análisis gráfico (preliminar)
+
+``` {r}
+plot(sr~ddpi, xlab=" % tasa crecimiento ingreso per capita", ylab="Tasa de ahorro")
+```
+
+***¿Qué se puede concluir?***
+
+### Se crea la matriz X
+
+``` {r}
+n<-dim(ahorro)[1]
+X<-as.matrix(cbind(rep(1,n),ahorro[,2]))
+pred<-dim(X)[2]
+```
+
+``` {r}
+n
+X
+pred
+```
+
+## Se identifica la variable respuesta
+
+``` {r}
+Y<-ahorro[,1]
+Y
+```
+
+### Estimación de los coeficientes
+
+``` {r}
+b<-solve(t(X)%*%X)%*%t(X)%*%Y
+b
+```
+
+### Usando las funciones programadas de R
+
+### El modelo
+
+``` {r}
+mod<-lm(sr~ddpi)
+summary(mod)
+```
