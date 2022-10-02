@@ -1,0 +1,7 @@
+---
+title: "Análisis de Redes"
+author: "Agustín Gómez Meléndez"
+format: html
+editor: visual
+---
+
