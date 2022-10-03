@@ -22,6 +22,7 @@ library(rootSolve)
 library(sjPlot)
 library(gridExtra)
 library(kableExtra)
+library(ggplot2)
 
 
 #Configuramos además el tema de los gráficos para que tengan un aspecto más limpio y más fácil de 
@@ -85,7 +86,8 @@ sel <- dplyr::filter(huevos, defectos <= (0.01*144))
 prob <- nrow(sel)/nsim
 cat("Probabilidad estimada [Pr(X/144 <=0.01): ", prob)
 
-#El error asociado a la estimación de la probabilidad anterior, lo calculamos aplicando (??), y también el intervalo de confianza al 95% con (1.1).
+#El error asociado a la estimación de la probabilidad anterior,
+#lo calculamos aplicando (??), y también el intervalo de confianza al 95% con (1.1).
 
 I.a=(huevos$defectos <= 1.44)*1
 prob=mean(I.a)
@@ -132,7 +134,8 @@ cat("IC(95%)[AproxMC(media)]=[",ic.low,",",ic.up,"]")
 # Binomial
 
 #Estamos revisando en una empresa el comportamiento de las bajas laborales. En base al histórico, 
-#se tiene que cada día aproximadamente el 3% de los trabajadores faltan al trabajo alegando una baja laboral. 
+#se tiene que cada día aproximadamente el 3% de los trabajadores faltan al trabajo alegando una 
+#baja laboral. 
 #Si el número de trabajadores de la empresa es de 150, queremos saber qué porcentaje de días vamos a tener al menos 3 trabajadores de baja.
 
 #Denotemos por  
@@ -145,7 +148,6 @@ cat("IC(95%)[AproxMC(media)]=[",ic.low,",",ic.up,"]")
 xs <- 0:50
 n=50
 p=0.03
-
 # Data frame
 datos <- data.frame(xs = xs, probs = dbinom(xs, n,p), 
                     probsacum = pbinom(xs, n,p))
@@ -157,11 +159,11 @@ g1 <- ggplot(datos, aes(x=xs, y=probs)) +
   labs(x ="x", y = "Probabilidad puntual. Pr(N=x)")
 
 # función de distribución
-
 g2 <- ggplot(datos, aes(xs, probsacum)) + 
   geom_bar(stat = "identity", fill = "steelblue") +
   scale_y_continuous(breaks = scales::breaks_extended(10)) +
   labs(x ="x", y ="Probabilidad acumulada. Pr(N<=x)")
+
 grid.arrange(g1, g2, nrow = 1)
 
 
@@ -234,6 +236,7 @@ error=sqrt(sum((datos-m)^2)/(nsim^2))
 ic.low=round(m-qnorm(0.975)*error,3)
 ic.up=round(m+qnorm(0.975)*error,3)
 cat("IC(95%)[AproxMC]=[",ic.low,",",ic.up,"]")
+
 ## IC(95%)[AproxMC]=[ 8.811 , 9.189 ]
 
 #Poisson

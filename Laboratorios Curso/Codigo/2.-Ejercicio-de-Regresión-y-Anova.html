@@ -11,7 +11,7 @@
 
 <meta name="author" content="Agustín Gómez Meléndez" />
 
-<meta name="date" content="2022-09-28" />
+<meta name="date" content="2022-10-02" />
 
 <title>Laboratorio de Regresión y Anova</title>
 
@@ -365,7 +365,7 @@ pre code {
 
 <h1 class="title toc-ignore">Laboratorio de Regresión y Anova</h1>
 <h4 class="author">Agustín Gómez Meléndez</h4>
-<h4 class="date">2022-09-28</h4>
+<h4 class="date">2022-10-02</h4>
 
 </div>
 
@@ -401,8 +401,9 @@ cantidad de especies que hay en la isla, como variable explicativa se
 utilizará la cantidad de especies endémicas que hay en la isla, a
 continuación se presentará el programa para poder obtener las salidas en
 R:</p>
-<pre class="r"><code>library(faraway)
-data(gala)
+<pre class="r"><code>library(faraway)</code></pre>
+<pre><code>## Warning: package &#39;faraway&#39; was built under R version 4.1.2</code></pre>
+<pre class="r"><code>data(gala)
 names(gala)</code></pre>
 <pre><code>## [1] &quot;Species&quot;   &quot;Endemics&quot;  &quot;Area&quot;      &quot;Elevation&quot; &quot;Nearest&quot;   &quot;Scruz&quot;    
 ## [7] &quot;Adjacent&quot;</code></pre>
@@ -498,8 +499,7 @@ dentro del análisis son los siguientes:</p>
 <p>A continuación se presenta el conjunto de datos con el cual se
 pretende realizar el análisis factorial:</p>
 <pre class="r"><code>library(readxl)</code></pre>
-<p>nkd &lt;- read_excel(“<a href="https://github.com/agmelendez/SP-8502_GIACT/blob/412aabcb1035080ad9048fcd50cca71ca008db88/nkd.xlsx" class="uri">https://github.com/agmelendez/SP-8502_GIACT/blob/412aabcb1035080ad9048fcd50cca71ca008db88/nkd.xlsx</a>”)
-nkd</p>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.1.2</code></pre>
 <pre class="r"><code>nkd&lt;-read.csv(&quot;https://raw.githubusercontent.com/agmelendez/SP-8502_GIACT/e6eac2d32b9c4234193a5e73020de24c9082c2cf/nkd.csv&quot;,header = TRUE,        
          sep = &quot;;&quot;,            
          quote = &quot;\&quot;&quot;,         
@@ -543,8 +543,9 @@ nkd</code></pre>
 factoriales se puede realizar los análisis que se consideren relevantes,
 dado que ya se conoce cual es la probabilidad asociada a alguna
 diferencia en el modelo anteriormente citado.</p>
-<pre class="r"><code>library(foreign)
-factorial &lt;- lm(Produccion  ~ D +K +N +D *K +D *N +K *N +D *K *N , data=nkd)</code></pre>
+<pre class="r"><code>library(foreign)</code></pre>
+<pre><code>## Warning: package &#39;foreign&#39; was built under R version 4.1.2</code></pre>
+<pre class="r"><code>factorial &lt;- lm(Produccion  ~ D +K +N +D *K +D *N +K *N +D *K *N , data=nkd)</code></pre>
 <pre class="r"><code>summary(factorial)</code></pre>
 <pre><code>## 
 ## Call:

@@ -28,7 +28,7 @@ ordenar<- function(vector)  #Funci?n burbuja para ordenar datos.
   }
   return(vector)
 }
-compara <- function(x) # Esta funci?n dejar s?lo los valores ?nicos dentro de un conjunto de datos
+compara <- function(x) # Esta función dejar sí lo los valores ?nicos dentro de un conjunto de datos
 {
   m <- length(x)
   contar <- 1

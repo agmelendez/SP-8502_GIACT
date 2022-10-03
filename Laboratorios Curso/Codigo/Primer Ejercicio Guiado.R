@@ -36,6 +36,7 @@ levels(base$actividad)
 
 mean(base$Gasolina)
 sd(base$Gasolina)
+mean(base$Diésel)
 
 #Obtenga la posición de las filas en las que el valor de gasolina es mayor a la media
 
@@ -48,7 +49,9 @@ subset(base, Gasolina>mean(Gasolina))
 #Haga lo mismo pero obteniendo solo el nombre de la actividad y el valor de gasolina
 
 subset(base, Gasolina>mean(Gasolina), select=c("actividad", "Gasolina"))
-
+plot(base$Gasolina)
+boxplot(base$Gasolina)
+hist(base$Gasolina)
 
 ######### MANIPULACIÓN DE DATOS ESPACIALES.
 
@@ -118,7 +121,6 @@ library(dplyr)
 library(EpiEstim)
 library(readxl)
 library(plotly)
-library(readxl)
 library(radiant)
 rm(list = ls())
 excel_sheets("Datos_Zooplancton_Marino_Ballena.xlsx")

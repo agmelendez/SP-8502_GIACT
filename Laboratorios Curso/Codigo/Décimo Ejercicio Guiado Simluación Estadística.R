@@ -10,11 +10,16 @@ runif(25,min=0,max=10) %>%
 set.seed(24)
 sample(seq(1,10),8)
 
-x = 1:10
+x = 1:10000
 sample(x,replace=TRUE)
+t <-sample(x,replace=TRUE)
+plot(t)
+summary(t)
+boxplot(t)
+
 
 set.seed(1)
-sample(letters,18)
+sample(letters,20)
 
 #Scenario 1 Equal Probability
 equal_prob_dist = sample(5,10000,prob=rep(0.1,5),replace=T)
@@ -45,11 +50,13 @@ for (i in 10000){
   die_sum = die_1+die_2
   print(mean(die_sum==7))
 }
+
 #You have two dice. What is the probability of rolling a 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, and 13?
 
 sapply(2:13,function(x) mean(outcomes==x))
 
-#Generate a random sample of 10000 values, and how many unique observations are included? How many are not included?
+#Generate a random sample of 10000 values, and how many unique observations are included? 
+#How many are not included?
 
 set.seed(1)
 n=10000
@@ -78,7 +85,8 @@ m0 <- matrix(0,m,n)
 apply(m0,c(1,2),function(x) sample(c(0,1),1))
 
 
-#Flip a coin 10 times and simulate the process for 10,000 times. Show the distribution of the number of heads shown up.
+#Flip a coin 10 times and simulate the process for 10,000 times. 
+#Show the distribution of the number of heads shown up.
 
 # create an empty list 
 total_heads = c()

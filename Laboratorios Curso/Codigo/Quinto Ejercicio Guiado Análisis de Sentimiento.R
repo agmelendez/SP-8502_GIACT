@@ -87,7 +87,7 @@ wordcloud(words = d$word, freq = d$freq, min.freq = 1,
 
 dataframe<-data.frame(text=unlist(sapply(docs, `[`)), stringsAsFactors=F)
 
-write.csv(dataframe, "F:/DOC/lionGithub/lion2.csv")
+write.csv(dataframe, "~/Desktop/Laboratorios Curso/DATOS/Sentiment-Analysis-with-R-master/lion2.csv")
 save.image()
 
 

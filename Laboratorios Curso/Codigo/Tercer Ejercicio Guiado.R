@@ -7,7 +7,8 @@ Lab_2 <- read_excel("Lab 2.xlsx", sheet = "Hoja1")
 View(Lab_2)
 
 ##PROBLEMA
-#A partir del archivo anterior cree los siguientes vectores, una vez listos cree una matriz con dichos resultados.
+#A partir del archivo anterior cree los siguientes vectores, una vez 
+#listos cree una matriz con dichos resultados.
 #1.	Var3 = (var1^2-var2^3)
 #2.	Var4 = raíz(var1)/sumatotal(var2)
 #3.	Var5 = var4*var3/var1

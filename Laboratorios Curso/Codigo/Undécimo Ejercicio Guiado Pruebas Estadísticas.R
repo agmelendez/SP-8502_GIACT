@@ -322,14 +322,14 @@ prop.test(c(127,136),c(1464,1463))
 OR<-(0.09295967/(1-.09295967))/(0.08674863/(1-0.08674863))
 OR
 
-#4.8 Razón de correlación o etaç
+#4.8 Razón de correlación o eta
 
 #En Estadística, la razón de correlación es una medida de la relación entre la dispersión estadística entre categorías individuales y la dispersión entre la muestra o la población completa. es decir la varianza ponderada de las medias categóricas dividida por la varianza de todas la muestras .
 
 religion<-recode(a39, "8:9=NA")
 religion2<-as.factor(religion)
 
-anova(lm(income_i~religion2))
+anova(lm(a1.1~religion2))
 eta<-sqrt(1486100000/(1486100000+1727500000000))
 eta
 
